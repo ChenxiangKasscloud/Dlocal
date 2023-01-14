@@ -1,5 +1,5 @@
-import { DEFAULT_LAYOUT } from '../base';
-import { AppRouteRecordRaw } from '../types';
+import { DEFAULT_LAYOUT } from '../base'
+import { AppRouteRecordRaw } from '../types'
 
 const VISUALIZATION: AppRouteRecordRaw = {
   path: '/visualization',
@@ -9,8 +9,9 @@ const VISUALIZATION: AppRouteRecordRaw = {
     locale: 'menu.visualization',
     requiresAuth: true,
     icon: 'icon-apps',
-    order: 1,
+    order: 2
   },
+
   children: [
     {
       path: 'data-analysis',
@@ -19,8 +20,8 @@ const VISUALIZATION: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.visualization.dataAnalysis',
         requiresAuth: true,
-        roles: ['admin'],
-      },
+        roles: ['admin']
+      }
     },
     {
       path: 'multi-dimension-data-analysis',
@@ -30,10 +31,31 @@ const VISUALIZATION: AppRouteRecordRaw = {
       meta: {
         locale: 'menu.visualization.multiDimensionDataAnalysis',
         requiresAuth: true,
-        roles: ['admin'],
-      },
+        roles: ['admin']
+      }
     },
-  ],
-};
+    {
+      path: 'workplace',
+      name: 'Workplace',
+      component: () => import('@/views/dashboard/workplace/index.vue'),
+      meta: {
+        locale: 'menu.dashboard.workplace',
+        requiresAuth: true,
+        roles: ['*']
+      }
+    },
 
-export default VISUALIZATION;
+    {
+      path: 'monitor',
+      name: 'Monitor',
+      component: () => import('@/views/dashboard/monitor/index.vue'),
+      meta: {
+        locale: 'menu.dashboard.monitor',
+        requiresAuth: true,
+        roles: ['admin']
+      }
+    }
+  ]
+}
+
+export default VISUALIZATION
