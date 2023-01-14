@@ -15,3 +15,5 @@ export default function createRouteGuard(router: Router) {
   setupUserLoginInfoGuard(router)
   setupPermissionGuard(router)
 }
+
+// 测试
